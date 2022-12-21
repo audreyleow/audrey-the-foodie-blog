@@ -9,7 +9,7 @@ type Props = {
 const Alert = ({ preview }: Props) => {
   return (
     <div
-      className={cn("border-b", {
+      className={cn("border-b ig-bg", {
         "bg-neutral-800 border-neutral-800 text-white": preview,
         "bg-neutral-50 border-neutral-200": !preview,
       })}
@@ -29,14 +29,13 @@ const Alert = ({ preview }: Props) => {
             </>
           ) : (
             <>
-              The source code for this blog is{" "}
               <a
-                href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
+                href={`https://www.instagram.com/audrey_the_foodie/`}
                 className="underline hover:text-blue-600 duration-200 transition-colors"
               >
-                available on GitHub
-              </a>
-              .
+                Follow me on Instagram
+              </a>{" "}
+              for more food recommendations!
             </>
           )}
         </div>

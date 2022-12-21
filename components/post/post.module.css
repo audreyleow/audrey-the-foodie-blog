@@ -1,0 +1,22 @@
+.general {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .general {
+    flex-direction: column;
+  }
+}
+
+.title {
+  font-size: 3.75rem; /* 60px */
+  line-height: 1;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+

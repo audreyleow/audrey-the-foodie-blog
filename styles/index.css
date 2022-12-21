@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ig-bg {
+  background-image: url("../public/assets/main/ig-color.jpeg");
+  background-size: 100% 100%;
+  color: #fff;
+}

@@ -1,16 +1,24 @@
-import type Author from './author'
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 type PostType = {
-  slug: string
-  title: string
-  date: string
-  coverImage: string
-  author: Author
-  excerpt: string
+  slug: string;
+  title: string;
+  date: string;
+  coverImage: string;
+  excerpt: string;
   ogImage: {
-    url: string
-  }
-  content: string
-}
+    url: string;
+  };
+  content: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
+  nearestMRT: string;
+  zone: string;
+  location: string;
+  rating: string;
+  collab: boolean;
+  hours: string;
+};
 
-export default PostType
+export default PostType;

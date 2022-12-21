@@ -1,25 +1,34 @@
-import Avatar from './avatar'
-import DateFormatter from './date-formatter'
-import CoverImage from './cover-image'
-import Link from 'next/link'
-import type Author from '../interfaces/author'
+import Avatar from "../avatar";
+import DateFormatter from "../date-formatter";
+import CoverImage from "../cover-image";
+import Link from "next/link";
 
 type Props = {
-  title: string
-  coverImage: string
-  date: string
-  excerpt: string
-  author: Author
-  slug: string
-}
+  title: string;
+  coverImage: string;
+  date: string;
+  excerpt: string;
+  zone: string;
+  nearestMRT: string;
+  location: string;
+  hours: string;
+  rating: string;
+  collab: boolean;
+  slug: string;
+};
 
 const HeroPost = ({
   title,
   coverImage,
   date,
   excerpt,
-  author,
   slug,
+  zone,
+  nearestMRT,
+  location,
+  hours,
+  rating,
+  collab,
 }: Props) => {
   return (
     <section>
@@ -42,12 +51,12 @@ const HeroPost = ({
           </div>
         </div>
         <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
+          <p className="text-lg leading-relaxed mb-4">{excerpt}...</p>
+          <Avatar zone={zone} />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HeroPost
+export default HeroPost;
