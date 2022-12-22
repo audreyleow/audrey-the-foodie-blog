@@ -1,18 +1,19 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "../../components/container";
-import PostBody from "../../components/post/post-body";
 import Header from "../../components/header";
 import PostHeader from "../../components/post/post-header";
 import Layout from "../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import PostTitle from "../../components/post/post-title";
+import Details from "../../components/post/details";
 import Head from "next/head";
-import { CMS_NAME } from "../../lib/constants";
-import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
+import { figtree } from "../../components/utils/font";
+import Image from "next/image";
+
 type Props = {
   post: PostType;
   morePosts: PostType[];
@@ -25,6 +26,7 @@ export default function Post({ post, morePosts, preview }: Props) {
     return <ErrorPage statusCode={404} />;
   }
   const { content } = post;
+  console.log(post);
   return (
     <Layout preview={preview}>
       <Container>
@@ -33,7 +35,7 @@ export default function Post({ post, morePosts, preview }: Props) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
+            <article className={`mb-32 ${figtree.className}`}>
               <Head>
                 <title>{post.title} | AUDREYTHEFOODIE</title>
                 <meta property="og:image" content={post.ogImage.url} />
@@ -45,8 +47,26 @@ export default function Post({ post, morePosts, preview }: Props) {
                 zone={post.zone}
                 nearestMRT={post.nearestMRT}
               />
-              <MDXRemote {...content} />
-              {/* <PostBody content={post.content} /> */}
+              <MDXRemote
+                {...content}
+                components={{
+                  h1: (props) => <h1 {...props} className="text-lg" />,
+                  p: (props) => <p {...props} className="mb-4" />,
+                  img: (props: any) => (
+                    <span className="block relative aspect-video">
+                      <Image {...props} fill className="object-cover" />
+                    </span>
+                  ),
+                }}
+              />
+              <Details
+                title={post.title}
+                nearestMRT={post.nearestMRT}
+                location={post.location}
+                rating={post.rating}
+                collab={post.collab}
+                hours={post.hours}
+              />
             </article>
           </>
         )}
@@ -71,6 +91,10 @@ export async function getStaticProps({ params }: Params) {
     "ogImage",
     "coverImage",
     "nearestMRT",
+    "hours",
+    "rating",
+    "collab",
+    "location",
   ]);
 
   const content = await serialize(post.content, {
