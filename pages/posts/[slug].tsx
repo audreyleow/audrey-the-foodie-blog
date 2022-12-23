@@ -13,6 +13,7 @@ import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { figtree } from "../../components/utils/font";
 import Image from "next/image";
+import ShareSocial from "../../components/utils/share-social";
 
 type Props = {
   post: PostType;
@@ -59,6 +60,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                   ),
                 }}
               />
+              <ShareSocial />
               <Details
                 title={post.title}
                 nearestMRT={post.nearestMRT}
