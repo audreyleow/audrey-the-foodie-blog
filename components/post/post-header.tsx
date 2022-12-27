@@ -1,4 +1,4 @@
-import Region from "../Region";
+import Region from "../region";
 import DateFormatter from "../date-formatter";
 import CoverImage from "../cover-image";
 import PostTitle from "./post-title";
