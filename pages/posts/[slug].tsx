@@ -54,7 +54,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 {...content}
                 components={{
                   h1: (props) => <h1 {...props} className="text-lg" />,
-                  p: (props) => <p {...props} className="mb-4" />,
+                  p: (props) => <p {...props} className="mb-6" />,
                   img: (props: any) => (
                     <span className="block relative aspect-video">
                       <Image {...props} fill className="object-cover" />
