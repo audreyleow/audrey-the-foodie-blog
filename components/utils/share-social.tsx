@@ -22,7 +22,7 @@ const ShareSocial = ({ id }: Props) => {
         title={"Check out this food review by AudreyTheFoodie!"}
       >
         <div className={styles["share-icon"]}>
-          <TelegramIcon width={40} height="auto" className={styles["icon"]} />
+          <TelegramIcon width={30} height="auto" className={styles["icon"]} />
         </div>
       </TelegramShareButton>
       <FacebookShareButton
@@ -30,7 +30,7 @@ const ShareSocial = ({ id }: Props) => {
         title={"Check out this food review by AudreyTheFoodie!"}
       >
         <div className={styles["share-icon"]}>
-          <FacebookIcon width={20} className={styles["icon"]} />
+          <FacebookIcon width={10} className={styles["icon"]} />
         </div>
       </FacebookShareButton>
       <TwitterShareButton
@@ -38,7 +38,7 @@ const ShareSocial = ({ id }: Props) => {
         title={"Check out this food review by AudreyTheFoodie!"}
       >
         <div className={styles["share-icon"]}>
-          <TwitterIcon width={30} height="auto" className={styles["icon"]} />
+          <TwitterIcon width={20} height="auto" className={styles["icon"]} />
         </div>
       </TwitterShareButton>
       <WhatsappShareButton
@@ -46,7 +46,7 @@ const ShareSocial = ({ id }: Props) => {
         title={"Check out this food review by AudreyTheFoodie!"}
       >
         <div className={styles["share-icon"]}>
-          <WhatsappIcon width={40} height="auto" className={styles["icon"]} />
+          <WhatsappIcon width={30} height="auto" className={styles["icon"]} />
         </div>
       </WhatsappShareButton>
     </div>

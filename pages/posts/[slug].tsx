@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "../../components/container";
+import Link from "next/link";
 import Header from "../../components/header";
 import PostHeader from "../../components/post/post-header";
 import Layout from "../../components/layout";
@@ -31,7 +32,7 @@ export default function Post({ post, morePosts, preview }: Props) {
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
+        {/* <Header /> */}
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -47,6 +48,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 date={post.date}
                 zone={post.zone}
                 nearestMRT={post.nearestMRT}
+                slug={post.slug}
               />
               <MDXRemote
                 {...content}
@@ -60,7 +62,6 @@ export default function Post({ post, morePosts, preview }: Props) {
                   ),
                 }}
               />
-              <ShareSocial id={post.slug} />
               <Details
                 title={post.title}
                 nearestMRT={post.nearestMRT}
@@ -69,6 +70,11 @@ export default function Post({ post, morePosts, preview }: Props) {
                 collab={post.collab}
                 hours={post.hours}
               />
+              <h4 className="text-center md:text-right text-lg mt-8 md:pl-8">
+                <Link href="/" className="hover:underline">
+                  Check out my other food reviews here! →
+                </Link>
+              </h4>
             </article>
           </>
         )}

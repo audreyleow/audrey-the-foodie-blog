@@ -1,7 +1,8 @@
-import Avatar from "../avatar";
+import Region from "../Region";
 import DateFormatter from "../date-formatter";
 import CoverImage from "../cover-image";
 import Link from "next/link";
+import { figtree } from "../utils/font";
 
 type Props = {
   title: string;
@@ -12,16 +13,9 @@ type Props = {
   slug: string;
 };
 
-const HeroPost = ({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  slug,
-  zone,
-}: Props) => {
+const HeroPost = ({ title, coverImage, date, excerpt, slug, zone }: Props) => {
   return (
-    <section>
+    <section className={figtree.className}>
       <div className="mb-8 md:mb-16">
         <CoverImage title={title} src={coverImage} slug={slug} />
       </div>
@@ -42,7 +36,7 @@ const HeroPost = ({
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}...</p>
-          <Avatar zone={zone} />
+          <Region zone={zone} />
         </div>
       </div>
     </section>

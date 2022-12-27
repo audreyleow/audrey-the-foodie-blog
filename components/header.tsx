@@ -8,7 +8,7 @@ const Header = () => {
       </h2>
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
         <Link href="/" className="hover:underline">
-         Check out my other food reviews here!
+         Check out my other food reviews here! →
         </Link>
       </h4>
     </section>

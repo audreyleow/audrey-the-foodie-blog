@@ -16,5 +16,20 @@
 }
 
 .footer-ig:hover {
-  filter: opacity(.9);
+  filter: opacity(0.9);
+}
+
+.navbar {
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 5px 5px 0px rgba(148, 148, 148, 0.75);
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(148, 148, 148, 0.75);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(148, 148, 148, 0.75);
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 9999;
+  background-color: #fff;
 }

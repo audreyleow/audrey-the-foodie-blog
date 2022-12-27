@@ -1,7 +1,8 @@
-import Avatar from "../avatar";
+import Region from "../Region";
 import DateFormatter from "../date-formatter";
 import CoverImage from "../cover-image";
 import PostTitle from "./post-title";
+import ShareSocial from "../utils/share-social";
 import styles from "./post.module.css";
 
 type Props = {
@@ -10,18 +11,30 @@ type Props = {
   date: string;
   zone: string;
   nearestMRT: string;
+  slug: string;
 };
 
-const PostHeader = ({ title, coverImage, date, zone, nearestMRT }: Props) => {
+const PostHeader = ({
+  title,
+  coverImage,
+  date,
+  zone,
+  nearestMRT,
+  slug,
+}: Props) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
       <div className={styles.general}>
-        <div className="">
-          <Avatar zone={zone} />
+        {/* <div className="">
+          <Region zone={zone} />
+        </div> */}
+        <div className={styles.temp}>
+          <DateFormatter dateString={date} />
+          <Region zone={zone} />
         </div>
         <div>
-          <DateFormatter dateString={date} />
+          <ShareSocial id={slug} />
         </div>
       </div>
       <div className="mb-8 sm:mx-0">
