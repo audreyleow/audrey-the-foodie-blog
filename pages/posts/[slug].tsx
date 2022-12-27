@@ -60,7 +60,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                   ),
                 }}
               />
-              <ShareSocial />
+              <ShareSocial id={post.slug} />
               <Details
                 title={post.title}
                 nearestMRT={post.nearestMRT}
