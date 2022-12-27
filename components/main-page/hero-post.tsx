@@ -9,11 +9,6 @@ type Props = {
   date: string;
   excerpt: string;
   zone: string;
-  nearestMRT: string;
-  location: string;
-  hours: string;
-  rating: string;
-  collab: boolean;
   slug: string;
 };
 
@@ -24,11 +19,6 @@ const HeroPost = ({
   excerpt,
   slug,
   zone,
-  nearestMRT,
-  location,
-  hours,
-  rating,
-  collab,
 }: Props) => {
   return (
     <section>
