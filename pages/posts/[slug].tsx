@@ -15,6 +15,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { figtree } from "../../components/utils/font";
 import Image from "next/image";
 import ShareSocial from "../../components/utils/share-social";
+import remarkGfm from "remark-gfm";
 
 type Props = {
   post: PostType;
@@ -59,6 +60,24 @@ export default function Post({ post, morePosts, preview }: Props) {
                     <span className="block relative aspect-video">
                       <Image {...props} fill className="object-cover" />
                     </span>
+                  ),
+                  th: (props) => (
+                    <th
+                      {...props}
+                      className="border-solid border-2 border-black"
+                    />
+                  ),
+                  td: (props) => (
+                    <td
+                      {...props}
+                      className="border-solid border-2 border-black min-w-[180px] p-[10px]"
+                    />
+                  ),
+                  table: (props) => (
+                    <table
+                      {...props}
+                      className="border-solid border-2 border-black w-full"
+                    />
                   ),
                 }}
               />
@@ -108,7 +127,7 @@ export async function getStaticProps({ params }: Params) {
   const content = await serialize(post.content, {
     parseFrontmatter: true,
     mdxOptions: {
-      remarkPlugins: [],
+      remarkPlugins: [remarkGfm],
       rehypePlugins: [],
       format: "mdx",
     },

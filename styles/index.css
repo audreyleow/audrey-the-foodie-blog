@@ -148,3 +148,8 @@
     font-size: 25px;
   }
 }
+
+.space-discrepancy {
+  margin-top: -20px;
+  margin-bottom: 15px;
+}

@@ -9,16 +9,17 @@ type Props = {
 };
 
 const CoverImage = ({ title, src, slug }: Props) => {
-  const image = (
-    <div className="aspect-video relative">
-      <Image
-        src={src}
-        alt={`Cover Image for ${title}`}
-        fill
-        className="object-cover"
-      />
-    </div>
-  );
+  const image =
+    src === "null" ? null : (
+      <div className="aspect-video relative">
+        <Image
+          src={src}
+          alt={`Cover Image for ${title}`}
+          fill
+          className="object-cover"
+        />
+      </div>
+    );
   return (
     <div className="sm:mx-0">
       {slug ? (
