@@ -1,12 +1,12 @@
-import PostPreview from "./post-preview";
-import type Post from "../../interfaces/post";
-import styles from "./main-page.module.css";
+import PostPreview from "../main-page/post-preview";
+import type OverseasPost from "../../interfaces/overseasPost";
+import styles from "./overseas.module.css";
 
 type Props = {
-  posts: Post[];
+  posts: OverseasPost[];
 };
 
-const MoreStories = ({ posts }: Props) => {
+const MoreOverseasStories = ({ posts }: Props) => {
   return (
     <section>
       <h2 className={styles["more-reviews"]}>More Reviews</h2>
@@ -17,7 +17,7 @@ const MoreStories = ({ posts }: Props) => {
             title={post.title}
             coverImage={post.coverImage}
             date={post.date}
-            zone={post.zone}
+            zone={post.country}
             slug={post.slug}
             excerpt={post.excerpt}
             nearestMRT={post.nearestMRT}
@@ -31,4 +31,4 @@ const MoreStories = ({ posts }: Props) => {
   );
 };
 
-export default MoreStories;
+export default MoreOverseasStories;

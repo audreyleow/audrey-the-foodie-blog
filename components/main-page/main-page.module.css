@@ -1,0 +1,38 @@
+/* main-page/hero-post.tsx */
+.post-heading {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.preview {
+  font-size: 1.125rem;
+  line-height: 1.625;
+  margin-bottom: 1rem;
+}
+
+.more-reviews {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .post-heading {
+    font-size: 2.25rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .post-heading {
+    font-size: 1.75rem;
+  }
+  .preview {
+    font-size: 1rem;
+  }
+  .more-reviews {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,37 @@
+/* overseas-post-header.tsx */
+.general {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-top: solid 2px;
+  padding-top: 5px;
+  align-items: center;
+}
+
+.temp {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.more-reviews {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .general {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .more-reviews {
+    font-size: 2rem;
+  }
+}

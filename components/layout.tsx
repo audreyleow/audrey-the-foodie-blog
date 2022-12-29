@@ -13,7 +13,7 @@ const Layout = ({ preview, children }: Props) => {
   return (
     <>
       <Meta />
-      <div className={`min-h-screen ${figtree.className}`}>
+      <div className={`min-size ${figtree.className}`}>
         <Alert preview={preview} />
         <Navbar />
         <main>{children}</main>

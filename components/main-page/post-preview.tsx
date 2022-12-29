@@ -2,6 +2,7 @@ import Region from "../region";
 import DateFormatter from "../date-formatter";
 import CoverImage from "../cover-image";
 import Link from "next/link";
+import styles from "./main-page.module.css";
 
 type Props = {
   title: string;
@@ -45,7 +46,7 @@ const PostPreview = ({
       <div className="text-lg mb-4">
         <DateFormatter dateString={date} />
       </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}...</p>
+      <p className={styles.preview}>{excerpt}...</p>
       <Region zone={zone} />
     </div>
   );
