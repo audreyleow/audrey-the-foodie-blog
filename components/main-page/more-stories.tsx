@@ -18,7 +18,7 @@ const MoreStories = ({ posts }: Props) => {
             coverImage={post.coverImage}
             date={post.date}
             zone={post.zone}
-            slug={post.slug}
+            slug={`/posts/${post.slug}`}
             excerpt={post.excerpt}
             nearestMRT={post.nearestMRT}
             location={post.location}

@@ -18,7 +18,7 @@ const MoreOverseasStories = ({ posts }: Props) => {
             coverImage={post.coverImage}
             date={post.date}
             zone={post.country}
-            slug={post.slug}
+            slug={`/overseas/${post.slug}`}
             excerpt={post.excerpt}
             nearestMRT={post.nearestMRT}
             location={post.location}
