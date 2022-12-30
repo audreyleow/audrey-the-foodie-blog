@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../../components/container";
 import MoreOverseasStories from "../../components/overseas/overseas-more-stories";
-import HeroPost from "../../components/main-page/hero-post";
+import OverseasHeroPost from "../../components/overseas/overseas-hero-post";
 import Intro from "../../components/intro";
 import Layout from "../../components/layout";
 import { getAllOverseasPosts } from "../../lib/api";
@@ -23,7 +23,7 @@ export default function Index({ allOverseasPosts }: Props) {
           <title>AudreyTheFoodie</title>
         </Head>
         <Container>
-          <div
+          {/* <div
             style={{
               margin: "auto",
               display: "flex",
@@ -33,10 +33,10 @@ export default function Index({ allOverseasPosts }: Props) {
             }}
           >
             Check back soon!
-          </div>
-          {/* <Intro />
+          </div> */}
+          <Intro />
           {heroPost && (
-            <HeroPost
+            <OverseasHeroPost
               title={heroPost.title}
               coverImage={heroPost.coverImage}
               date={heroPost.date}
@@ -45,7 +45,7 @@ export default function Index({ allOverseasPosts }: Props) {
               excerpt={heroPost.excerpt}
             />
           )}
-          {morePosts.length > 0 && <MoreOverseasStories posts={morePosts} />} */}
+          {morePosts.length > 0 && <MoreOverseasStories posts={morePosts} />}
         </Container>
       </Layout>
     </>

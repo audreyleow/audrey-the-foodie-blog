@@ -53,8 +53,8 @@ export default function Post({ post, morePosts, preview }: Props) {
               <MDXRemote
                 {...content}
                 components={{
-                  h1: (props) => <h1 {...props} className="text-lg" />,
-                  p: (props) => <p {...props} className="mb-6" />,
+                  h1: (props) => <h1 {...props} className="text-xl" />,
+                  p: (props) => <p {...props} className="mb-6 text-lg" />,
                   img: (props: any) => (
                     <span className="block relative aspect-video">
                       <Image {...props} fill className="object-cover" />

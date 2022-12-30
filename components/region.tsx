@@ -8,7 +8,7 @@ const Region = ({ zone }: Props) => {
     //   {/* <img src={picture} className="w-12 h-12 rounded-full mr-4" alt={name} /> */}
     //   <div className="">{zone} Region</div>
     // </div>
-    <div style={{ fontWeight: "bold" }}>{zone} Region</div>
+    <div style={{ fontWeight: "600", fontSize: "17px" }}>{zone} Region</div>
   );
 };
 

@@ -37,7 +37,7 @@ const OverseasPostHeader = ({
           <ShareSocial id={slug} />
         </div>
       </div>
-      <div className="mb-6 sm:mx-0">
+      <div className="mb-6 sm:mx-0 text-xl">
         <CoverImage title={title} src={coverImage} />
       </div>
     </>
