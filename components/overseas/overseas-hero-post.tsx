@@ -14,7 +14,14 @@ type Props = {
   slug: string;
 };
 
-const OverseasHeroPost = ({ title, coverImage, date, excerpt, slug, zone }: Props) => {
+const OverseasHeroPost = ({
+  title,
+  coverImage,
+  date,
+  excerpt,
+  slug,
+  zone,
+}: Props) => {
   return (
     <section className={figtree.className}>
       <div className="mb-8 md:mb-16">
@@ -23,11 +30,7 @@ const OverseasHeroPost = ({ title, coverImage, date, excerpt, slug, zone }: Prop
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
           <h3 className={styles["post-heading"]}>
-            <Link
-              as={`/overseas/${slug}`}
-              href="/overseas/[slug]"
-              className="hover:underline"
-            >
+            <Link href={`/overseas/${slug}`} className="hover:underline">
               {title}
             </Link>
           </h3>
