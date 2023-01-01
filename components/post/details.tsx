@@ -1,4 +1,5 @@
 import styles from "./post.module.css";
+import qs from "qs";
 
 type Props = {
   title: string;
@@ -30,6 +31,21 @@ const Details = ({
       <div>Rating: {rating}</div>
       <br />
       <div>{disclaimer}</div>
+      <div style={{ display: "flex", margin: "0px -20px -20px" }}>
+        <iframe
+          width="100%"
+          height="350"
+          className="border-0"
+          loading="lazy"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
+          src={`https://www.google.com/maps/embed/v1/place?key=${
+            process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+          }&${qs.stringify({
+            q: location,
+          })}`}
+        />
+      </div>
     </div>
   );
 };

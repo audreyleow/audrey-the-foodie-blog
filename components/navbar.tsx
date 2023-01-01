@@ -9,6 +9,11 @@ const Navbar = () => {
       </h1>
       <div className="options">
         <div className="indiv">
+          <Link href="/" className="hover:underline">
+            SG Food
+          </Link>
+        </div>
+        <div className="indiv">
           <Link href="/overseas" className="hover:underline">
             Overseas
           </Link>
@@ -18,6 +23,11 @@ const Navbar = () => {
             My Recipes
           </Link>
         </div>
+        {/* <div className="indiv">
+          <Link href="/overseas" className="hover:underline">
+            My Guides
+          </Link>
+        </div> */}
         <div className="indiv">
           <Link href="/about_me" className="hover:underline">
             About Me
