@@ -4,7 +4,7 @@ import MobileNavbar from "./mobile-navbar";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <h1 className="name-header md:text-6xl tracking-tighter leading-tight md:pr-8">
+      <h1 className="name-header tracking-tighter leading-tight md:pr-8">
         <Link href="/">audrey_the_foodie</Link>
       </h1>
       <div className="options">
