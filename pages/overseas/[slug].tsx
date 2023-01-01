@@ -15,6 +15,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { figtree } from "../../components/utils/font";
 import Image from "next/image";
 import ShareSocial from "../../components/utils/share-social";
+import qs from "qs";
 
 type Props = {
   post: OverseasPostType;
@@ -69,6 +70,19 @@ export default function Post({ post, morePosts, preview }: Props) {
                 rating={post.rating}
                 collab={post.collab}
                 hours={post.hours}
+              />
+              <iframe
+                width="600"
+                height="450"
+                className="border-0"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src={`https://www.google.com/maps/embed/v1/place?key=${
+                  process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+                }&${qs.stringify({
+                  q: post.location,
+                })}`}
               />
               <h4 className="text-center md:text-right text-lg mt-8 md:pl-8">
                 <Link href="/" className="hover:underline">
