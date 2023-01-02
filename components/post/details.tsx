@@ -19,7 +19,9 @@ const Details = ({
   hours,
 }: Props) => {
   const disclaimer = collab && (
-    <em>Disclaimer: This was an invited tasting.</em>
+    <div style={{ paddingBottom: "10px" }}>
+      <em>Disclaimer: This was an invited tasting.</em>
+    </div>
   );
   return (
     <div className={styles.details}>
@@ -30,7 +32,7 @@ const Details = ({
       <div>Location: {location}</div>
       <div>Rating: {rating}</div>
       <br />
-      <div>{disclaimer}</div>
+      {disclaimer}
       <div style={{ display: "flex", margin: "0px -20px -20px" }}>
         <iframe
           width="100%"
