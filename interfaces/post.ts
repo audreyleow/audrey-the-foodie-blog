@@ -9,6 +9,7 @@ type PostType = {
   ogImage: {
     url: string;
   };
+  igLink: string;
   content: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, string>

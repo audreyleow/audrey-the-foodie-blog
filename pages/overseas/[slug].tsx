@@ -46,6 +46,7 @@ export default function Post({ post, morePosts, preview }: Props) {
               <OverseasPostHeader
                 title={post.title}
                 coverImage={post.coverImage}
+                igLink={post.igLink}
                 date={post.date}
                 country={post.country}
                 nearestMRT={post.nearestMRT}
@@ -98,6 +99,7 @@ export async function getStaticProps({ params }: Params) {
     "country",
     "content",
     "ogImage",
+    "igLink",
     "coverImage",
     "nearestMRT",
     "hours",

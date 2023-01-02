@@ -8,6 +8,7 @@ import styles from "./overseas.module.css";
 type Props = {
   title: string;
   coverImage: string;
+  igLink: string;
   date: string;
   country: string;
   nearestMRT: string;
@@ -17,6 +18,7 @@ type Props = {
 const OverseasPostHeader = ({
   title,
   coverImage,
+  igLink,
   date,
   country,
   nearestMRT,
@@ -34,7 +36,7 @@ const OverseasPostHeader = ({
           <Country country={country} />
         </div>
         <div>
-          <ShareSocial id={slug} />
+          <ShareSocial id={slug} igLink={igLink} />
         </div>
       </div>
       <div className="mb-6 sm:mx-0 text-xl">

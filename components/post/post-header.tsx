@@ -8,6 +8,7 @@ import styles from "./post.module.css";
 type Props = {
   title: string;
   coverImage: string;
+  igLink: string;
   date: string;
   zone: string;
   nearestMRT: string;
@@ -17,6 +18,7 @@ type Props = {
 const PostHeader = ({
   title,
   coverImage,
+  igLink,
   date,
   zone,
   nearestMRT,
@@ -34,7 +36,7 @@ const PostHeader = ({
           <Region zone={zone} />
         </div>
         <div>
-          <ShareSocial id={slug} />
+          <ShareSocial id={slug} igLink={igLink} />
         </div>
       </div>
       <div className="mb-6 sm:mx-0">

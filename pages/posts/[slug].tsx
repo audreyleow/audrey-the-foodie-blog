@@ -47,6 +47,7 @@ export default function Post({ post, morePosts, preview }: Props) {
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
+                igLink={post.igLink}
                 date={post.date}
                 zone={post.zone}
                 nearestMRT={post.nearestMRT}
@@ -117,6 +118,7 @@ export async function getStaticProps({ params }: Params) {
     "zone",
     "content",
     "ogImage",
+    "igLink",
     "coverImage",
     "nearestMRT",
     "hours",

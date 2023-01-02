@@ -4,17 +4,20 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
+import Link from "next/link";
 import styles from "../post/post.module.css";
 import FacebookIcon from "../icons/FacebookIcon";
 import TelegramIcon from "../icons/TelegramIcon";
 import TwitterIcon from "../icons/TwitterIcon";
 import WhatsappIcon from "../icons/WhatsappIcon";
+import InstagramIcon from "../icons/InstagramIcon";
 
 type Props = {
   id: string;
+  igLink: string;
 };
 
-const ShareSocial = ({ id }: Props) => {
+const ShareSocial = ({ id, igLink }: Props) => {
   return (
     <div className={styles["share-container"]}>
       <TelegramShareButton
@@ -33,6 +36,11 @@ const ShareSocial = ({ id }: Props) => {
           <FacebookIcon width={10} className={styles["icon"]} />
         </div>
       </FacebookShareButton>
+      <Link href={igLink}>
+        <div className={styles["share-icon"]}>
+          <InstagramIcon width={30} height="auto" className={styles["icon"]} />
+        </div>
+      </Link>
       <TwitterShareButton
         url={`http://audreythefoodie.com/posts/${id}`}
         title={"Check out this food review by AudreyTheFoodie!"}
