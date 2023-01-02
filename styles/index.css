@@ -162,3 +162,10 @@
   margin-top: -20px;
   margin-bottom: 15px;
 }
+
+.shrink-center-image {
+  width: 50%;
+  display: flex;
+  margin: auto;
+  padding-bottom: 15px;
+}
