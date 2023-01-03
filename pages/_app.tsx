@@ -2,6 +2,7 @@ import { AppProps } from "next/app";
 import "../styles/index.css";
 import { MDXProvider } from "@mdx-js/react";
 import Image from "next/image";
+import PostImages from "../components/PostImages";
 
 const components = {
   h1: (props) => <h1 {...props} className="text-xl" />,
@@ -23,6 +24,7 @@ const components = {
   table: (props) => (
     <table {...props} className="border-solid border-2 border-black w-full" />
   ),
+  PostImages,
 };
 
 export default function MyApp({ Component, pageProps }: AppProps) {
