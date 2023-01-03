@@ -4,9 +4,10 @@ import MoreOverseasStories from "../../components/overseas/overseas-more-stories
 import OverseasHeroPost from "../../components/overseas/overseas-hero-post";
 import Intro from "../../components/intro";
 import Layout from "../../components/layout";
-import { getAllOverseasPosts } from "../../lib/api";
 import Head from "next/head";
 import OverseasPost from "../../interfaces/overseasPost";
+import { join } from "path";
+import { getAllPosts } from "../../lib/api";
 
 type Props = {
   allOverseasPosts: OverseasPost[];
@@ -53,7 +54,8 @@ export default function Index({ allOverseasPosts }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const allOverseasPosts = getAllOverseasPosts([
+  const postsDirectory = join(process.cwd(), "_overseas");
+  const allOverseasPosts = getAllPosts(postsDirectory, [
     "title",
     "date",
     "slug",

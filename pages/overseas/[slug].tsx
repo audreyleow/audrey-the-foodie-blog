@@ -5,33 +5,37 @@ import Link from "next/link";
 import Header from "../../components/header";
 import OverseasPostHeader from "../../components/overseas/overseas-post-header";
 import Layout from "../../components/layout";
-import { getOverseasPostBySlug, getAllOverseasPosts } from "../../lib/api";
+import { getAllPosts } from "../../lib/api";
 import PostTitle from "../../components/post/post-title";
 import Details from "../../components/post/details";
 import Head from "next/head";
 import type OverseasPostType from "../../interfaces/overseasPost";
-import { MDXRemote } from "next-mdx-remote";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { figtree } from "../../components/utils/font";
 import Image from "next/image";
 import ShareSocial from "../../components/utils/share-social";
 import qs from "qs";
+import { join } from "path";
+import getPostProps from "../../lib/getPostProps";
 
 type Props = {
-  post: OverseasPostType;
-  morePosts: OverseasPostType[];
-  preview?: boolean;
+  mdxContent: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
+  frontmatter: {
+    [key: string]: any;
+  };
 };
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ mdxContent, frontmatter }: Props) {
   const router = useRouter();
-  if (!router.isFallback && !post?.slug) {
+  if (!router.isFallback && !frontmatter?.slug) {
     return <ErrorPage statusCode={404} />;
   }
-  const { content } = post;
-  console.log(post);
   return (
-    <Layout preview={preview}>
+    <Layout preview={false}>
       <Container>
         {/* <Header /> */}
         {router.isFallback ? (
@@ -40,37 +44,26 @@ export default function Post({ post, morePosts, preview }: Props) {
           <>
             <article className={`mb-32 ${figtree.className}`}>
               <Head>
-                <title>{post.title} | AUDREYTHEFOODIE</title>
-                <meta property="og:image" content={post.ogImage.url} />
+                <title>{frontmatter.title} | AUDREYTHEFOODIE</title>
+                <meta property="og:image" content={frontmatter.ogImage.url} />
               </Head>
               <OverseasPostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                igLink={post.igLink}
-                date={post.date}
-                country={post.country}
-                nearestMRT={post.nearestMRT}
-                slug={post.slug}
+                title={frontmatter.title}
+                coverImage={frontmatter.coverImage}
+                igLink={frontmatter.igLink}
+                date={frontmatter.date}
+                country={frontmatter.country}
+                nearestMRT={frontmatter.nearestMRT}
+                slug={frontmatter.slug}
               />
-              <MDXRemote
-                {...content}
-                components={{
-                  h1: (props) => <h1 {...props} className="text-xl" />,
-                  p: (props) => <p {...props} className="mb-6 text-lg" />,
-                  img: (props: any) => (
-                    <span className="block relative aspect-video">
-                      <Image {...props} fill className="object-cover" />
-                    </span>
-                  ),
-                }}
-              />
+              <MDXRemote {...mdxContent} />
               <Details
-                title={post.title}
-                nearestMRT={post.nearestMRT}
-                location={post.location}
-                rating={post.rating}
-                collab={post.collab}
-                hours={post.hours}
+                title={frontmatter.title}
+                nearestMRT={frontmatter.nearestMRT}
+                location={frontmatter.location}
+                rating={frontmatter.rating}
+                collab={frontmatter.collab}
+                hours={frontmatter.hours}
               />
               <h4 className="text-center md:text-right text-lg mt-8 md:pl-8">
                 <Link href="/" className="hover:underline">
@@ -92,49 +85,19 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const post = getOverseasPostBySlug(params.slug, [
-    "title",
-    "date",
-    "slug",
-    "country",
-    "content",
-    "ogImage",
-    "igLink",
-    "coverImage",
-    "nearestMRT",
-    "hours",
-    "rating",
-    "collab",
-    "location",
-  ]);
-
-  const content = await serialize(post.content, {
-    parseFrontmatter: true,
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-      format: "mdx",
-    },
-  });
-
-  return {
-    props: {
-      post: {
-        ...post,
-        content,
-      },
-    },
-  };
+  const postsDirectory = join(process.cwd(), "_overseas");
+  return getPostProps(params.slug, postsDirectory);
 }
 
 export async function getStaticPaths() {
-  const overseasPosts = getAllOverseasPosts(["slug"]);
+  const postsDirectory = join(process.cwd(), "_overseas");
+  const posts = getAllPosts(postsDirectory, ["slug"]);
 
   return {
-    paths: overseasPosts.map((overseasPost) => {
+    paths: posts.map((post) => {
       return {
         params: {
-          slug: overseasPost.slug,
+          slug: post.slug,
         },
       };
     }),

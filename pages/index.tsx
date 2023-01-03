@@ -6,6 +6,7 @@ import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
 import Post from "../interfaces/post";
+import { join } from "path";
 
 type Props = {
   allPosts: Post[];
@@ -41,7 +42,8 @@ export default function Index({ allPosts }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
+  const postsDirectory = join(process.cwd(), "_posts");
+  const allPosts = getAllPosts(postsDirectory, [
     "title",
     "date",
     "slug",
