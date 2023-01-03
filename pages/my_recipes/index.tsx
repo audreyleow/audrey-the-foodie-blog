@@ -4,7 +4,6 @@ import MoreOverseasStories from "../../components/overseas/overseas-more-stories
 import HeroPost from "../../components/main-page/hero-post";
 import Intro from "../../components/intro";
 import Layout from "../../components/layout";
-import { getAllOverseasPosts } from "../../lib/api";
 import Head from "next/head";
 import OverseasPost from "../../interfaces/overseasPost";
 
@@ -13,9 +12,9 @@ type Props = {
 };
 
 export default function Index({ allOverseasPosts }: Props) {
-  const heroPost = allOverseasPosts[0];
-  const morePosts = allOverseasPosts.slice(1);
-  console.log(allOverseasPosts);
+  // const heroPost = allOverseasPosts[0];
+  // const morePosts = allOverseasPosts.slice(1);
+  // console.log(allOverseasPosts);
   return (
     <>
       <Layout>
@@ -52,18 +51,18 @@ export default function Index({ allOverseasPosts }: Props) {
   );
 }
 
-export const getStaticProps = async () => {
-  const allOverseasPosts = getAllOverseasPosts([
-    "title",
-    "date",
-    "slug",
-    "coverImage",
-    "excerpt",
-    "nearestMRT",
-    "country",
-  ]);
+// export const getStaticProps = async () => {
+//   const allOverseasPosts = getAllOverseasPosts([
+//     "title",
+//     "date",
+//     "slug",
+//     "coverImage",
+//     "excerpt",
+//     "nearestMRT",
+//     "country",
+//   ]);
 
-  return {
-    props: { allOverseasPosts },
-  };
-};
+//   return {
+//     props: { allOverseasPosts },
+//   };
+// };
