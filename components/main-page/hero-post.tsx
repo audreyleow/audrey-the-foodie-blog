@@ -17,10 +17,10 @@ type Props = {
 const HeroPost = ({ title, coverImage, date, excerpt, slug, zone }: Props) => {
   return (
     <section className={figtree.className}>
-      <div className="mb-8 md:mb-16">
+      <div className={styles["cover-image"]}>
         <CoverImage title={title} src={coverImage} slug={`/posts/${slug}`} />
       </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
+      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-12 md:mb-20">
         <div>
           <h3 className={styles["post-heading"]}>
             <Link href={`/posts/${slug}`} className="hover:underline">

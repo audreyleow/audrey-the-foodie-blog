@@ -1,4 +1,8 @@
 /* main-page/hero-post.tsx */
+.cover-image {
+  margin-bottom: 3rem;
+}
+
 .post-heading {
   font-size: 2.5rem;
   line-height: 1.2;
@@ -9,6 +13,10 @@
   font-size: 1.125rem;
   line-height: 1.625;
   margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .more-reviews {
@@ -20,19 +28,101 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .cover-image {
+    margin-bottom: 2rem;
+  }
   .post-heading {
     font-size: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .preview {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .cover-image {
+    margin-bottom: 1.5rem;
   }
 }
 
 @media screen and (max-width: 550px) {
   .post-heading {
     font-size: 1.75rem;
+    margin-bottom: 0.75rem;
   }
   .preview {
-    font-size: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.2;
   }
   .more-reviews {
     font-size: 2rem;
+  }
+}
+
+/* main-page/more-stories.tsx */
+.main-reviews {
+  display: grid;
+  column-gap: 4rem;
+  row-gap: 5rem;
+  margin-bottom: 4rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media screen and (max-width: 768px) {
+  .main-reviews {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .main-reviews {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* main-page/post-preview.tsx */
+.food-heading {
+  font-size: 1.875rem;
+  line-height: 1.375;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.date {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .food-heading {
+    font-size: 1.675rem;
+    line-height: 1.2;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .food-heading {
+    font-size: 1.5rem;
+    line-height: 1.1;
+  }
+  .date {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .food-heading {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+  .date {
+    font-size: 0.7rem;
+    line-height: 1rem;
+    margin-bottom: 0.5rem;
   }
 }

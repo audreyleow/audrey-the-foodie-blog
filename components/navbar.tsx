@@ -9,7 +9,7 @@ const Navbar = () => {
       </h1>
       <div className="options">
         <div className="indiv">
-          <Link href="/" className="hover:underline">
+          <Link href="/food" className="hover:underline">
             SG Food
           </Link>
         </div>

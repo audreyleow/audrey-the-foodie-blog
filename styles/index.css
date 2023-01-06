@@ -3,10 +3,16 @@
 @tailwind utilities;
 
 /* container.tsx */
+@media screen and (max-width: 1024px) {
+  .mobile {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
 @media screen and (max-width: 800px) {
   .mobile {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
@@ -168,4 +174,30 @@
   display: flex;
   margin: auto;
   padding-bottom: 15px;
+}
+
+/* region.tsx */
+.region {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .region {
+    font-size: 0.75rem;
+  }
+}
+
+/* intro.tsx */
+.intro-text {
+  font-size: 1.125rem;
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+@media screen and (max-width: 550px) {
+  .intro-text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }

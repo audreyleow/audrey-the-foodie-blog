@@ -8,11 +8,13 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import CloseIcon from "@mui/icons-material/Close";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import InstagramIcon from "./icons/InstagramIcon";
+import Image from "next/image";
+import styles from "./post/post.module.css";
 
 const drawerWidth = 240;
 
@@ -22,24 +24,24 @@ const MOBILE_NAVBAR_OPTIONS = [
   { name: "About Me", slug: "/about_me" },
 ];
 
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
-  open?: boolean;
-}>(({ theme, open }) => ({
-  flexGrow: 1,
-  padding: theme.spacing(3),
-  transition: theme.transitions.create("margin", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  marginRight: -drawerWidth,
-  ...(open && {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginRight: 0,
-  }),
-}));
+// const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
+//   open?: boolean;
+// }>(({ theme, open }) => ({
+//   flexGrow: 1,
+//   padding: theme.spacing(3),
+//   transition: theme.transitions.create("margin", {
+//     easing: theme.transitions.easing.sharp,
+//     duration: theme.transitions.duration.leavingScreen,
+//   }),
+//   marginRight: -drawerWidth,
+//   ...(open && {
+//     transition: theme.transitions.create("margin", {
+//       easing: theme.transitions.easing.easeOut,
+//       duration: theme.transitions.duration.enteringScreen,
+//     }),
+//     marginRight: 0,
+//   }),
+// }));
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -118,30 +120,61 @@ export default function MobileNavbar() {
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: drawerWidth,
+            backgroundColor: "#AA98A9",
+            color: "#fff",
+            fontWeight: "400",
+            borderLeft: "none",
           },
         }}
         variant="persistent"
         anchor="right"
         open={open}
       >
-        <DrawerHeader>
+        <DrawerHeader sx={{ justifyContent: "flex-end" }}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
+            <CloseIcon sx={{ color: "#fff" }} />
+            {/* {theme.direction === "rtl" ? (
               <ChevronLeftIcon />
             ) : (
               <ChevronRightIcon />
-            )}
+            )} */}
           </IconButton>
         </DrawerHeader>
-        <Divider />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Image
+            src={`/assets/personal/profile_mobile.jpg`}
+            alt="audrey_the_foodie profile pic"
+            width={70}
+            height={70}
+            style={{ borderRadius: "50%" }}
+          />
+        </div>
+
+        {/* <Divider /> */}
         <List>
           {MOBILE_NAVBAR_OPTIONS.map((option, index) => (
-            <ListItem key={option.slug}>
+            <ListItem key={option.slug} sx={{ justifyContent: "center" }}>
               <Link href={option.slug}>
                 <ListItemText primary={option.name} />
               </Link>
             </ListItem>
           ))}
+          <ListItem
+            sx={{
+              justifyContent: "center",
+              display: "flex",
+              flexDirection: "column",
+              paddingTop: "20px",
+              fontSize: "14px",
+            }}
+          >
+            <div>Follow me on Instagram!</div>
+            <div style={{ paddingTop: "10px" }}>
+              <InstagramIcon width={30} height="auto" />
+            </div>
+
+            {/* <ListItemText primary={option.name} /> */}
+          </ListItem>
         </List>
       </Drawer>
     </Box>
