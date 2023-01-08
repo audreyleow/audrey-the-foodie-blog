@@ -24,18 +24,7 @@ export default function Index({ allOverseasPosts }: Props) {
           <title>AudreyTheFoodie</title>
         </Head>
         <Container>
-          {/* <div
-            style={{
-              margin: "auto",
-              display: "flex",
-              justifyContent: "center",
-              paddingTop: "50px",
-              fontSize: "30px",
-            }}
-          >
-            Check back soon!
-          </div> */}
-          <Intro />
+          <Intro text={`Looking for something specific?`} />
           {heroPost && (
             <OverseasHeroPost
               title={heroPost.title}

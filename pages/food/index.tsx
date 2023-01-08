@@ -1,11 +1,17 @@
-import Container from "../../components/container";
-import MoreStories from "../../components/main-page/more-stories";
+import { useState, useEffect } from "react";
 import PostPreview from "../../components/main-page/post-preview";
 import Intro from "../../components/intro";
 import Layout from "../../components/layout";
+import FilterDropdown from "../../components/food/filter-dropdown";
 import { getAllPosts } from "../../lib/api";
 import Head from "next/head";
 import Post from "../../interfaces/post";
+import {
+  zoneOptions,
+  ratingOptions,
+  mrtOptions,
+  overseasOptions,
+} from "../../components/food/filter-options";
 import { join } from "path";
 import styles from "../../components/food/food.module.css";
 
@@ -15,6 +21,30 @@ type Props = {
 
 export default function Index({ allPosts }: Props) {
   console.log(allPosts);
+  const [filteredPosts, setFilteredPosts] = useState(allPosts);
+  const [selectedZone, setSelectedZone] = useState<{
+    label: string;
+    value: string;
+  }>(null);
+  const [selectedRating, setSelectedRating] = useState<{
+    label: string;
+    value: string;
+  }>(null);
+  const [selectedMRT, setSelectedMRT] = useState<{
+    label: string;
+    value: string;
+  }>(null);
+
+  useEffect(() => {
+    let newFilteredPosts = allPosts.filter(
+      (post) =>
+        (selectedZone === null || post.zone === selectedZone.value) &&
+        (selectedRating === null || post.rating === selectedRating.value) &&
+        (selectedMRT === null || post.nearestMRT === selectedMRT.value)
+    );
+    setFilteredPosts(newFilteredPosts);
+  }, [selectedZone, selectedRating, selectedMRT]);
+
   return (
     <>
       <Layout>
@@ -22,10 +52,34 @@ export default function Index({ allPosts }: Props) {
           <title>AudreyTheFoodie</title>
         </Head>
         <div>
-          <Intro />
+          <Intro text={`Looking for something specific?`} />
+          <div className={styles["filter-container"]}>
+            <div className={styles["filter-by"]}>Filter by:</div>
+            <div className={styles["filter-mobile"]}>
+              <FilterDropdown
+                placeholder={`Zone`}
+                sortOptions={zoneOptions}
+                onChange={(choice) => setSelectedZone(choice)}
+              />
+              <FilterDropdown
+                placeholder={`Rating`}
+                sortOptions={ratingOptions}
+                onChange={(choice) => setSelectedRating(choice)}
+              />
+              <FilterDropdown
+                placeholder={`Nearest MRT Station`}
+                sortOptions={mrtOptions}
+                onChange={(choice) => setSelectedMRT(choice)}
+              />
+              {/* <FilterDropdown
+              placeholder={`Country`}
+              sortOptions={overseasOptions}
+            /> */}
+            </div>
+          </div>
           <div className={styles["food-container"]}>
             <div className={styles["main-reviews"]}>
-              {allPosts.map((post) => (
+              {filteredPosts.map((post) => (
                 <PostPreview
                   key={post.slug}
                   title={post.title}
@@ -58,6 +112,7 @@ export const getStaticProps = async () => {
     "excerpt",
     "nearestMRT",
     "zone",
+    "rating",
   ]);
 
   return {

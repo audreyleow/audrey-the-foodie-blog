@@ -1,9 +1,7 @@
-const Intro = () => {
+const Intro = ({ text }: { text: string }) => {
   return (
-    <section className="flex-col flex items-center mt-16 mb-16 md:mb-12">
-      <h4 className="intro-text">
-        Just a Singaporean foodie sharing her love for food!
-      </h4>
+    <section className="flex-col flex items-center mt-12 mb-12 md:mb-8">
+      <h4 className="intro-text">{text}</h4>
     </section>
   );
 };

@@ -33,7 +33,8 @@ export default function Index({ allOverseasPosts }: Props) {
           >
             Check back soon!
           </div>
-          {/* <Intro />
+          {/*           <Intro text={`Looking for something specific?`} />
+
           {heroPost && (
             <HeroPost
               title={heroPost.title}

@@ -23,7 +23,9 @@ export default function Index({ allPosts }: Props) {
           <title>AudreyTheFoodie</title>
         </Head>
         <Container>
-          <Intro />
+          <Intro
+            text={`Just a Singaporean foodie sharing her love for food!`}
+          />
           {heroPost && (
             <HeroPost
               title={heroPost.title}
