@@ -1,12 +1,13 @@
+import Head from "next/head";
+import Link from "next/link";
+import { join } from "path";
 import Container from "../components/container";
 import MoreStories from "../components/main-page/more-stories";
 import HeroPost from "../components/main-page/hero-post";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
-import Head from "next/head";
 import Post from "../interfaces/post";
-import { join } from "path";
 
 type Props = {
   allPosts: Post[];
@@ -36,6 +37,12 @@ export default function Index({ allPosts }: Props) {
               excerpt={heroPost.excerpt}
             />
           )}
+          <Link href={`/food`}>
+            <div className="redirect-filter">
+              Looking for something&nbsp;
+              <span style={{ textDecoration: "underline" }}> specific?</span> →
+            </div>
+          </Link>
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>

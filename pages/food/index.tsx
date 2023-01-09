@@ -10,7 +10,7 @@ import {
   zoneOptions,
   ratingOptions,
   mrtOptions,
-  overseasOptions,
+  tagsOptions,
 } from "../../components/food/filter-options";
 import { join } from "path";
 import styles from "../../components/food/food.module.css";
@@ -34,16 +34,21 @@ export default function Index({ allPosts }: Props) {
     label: string;
     value: string;
   }>(null);
+  const [selectedTag, setSelectedTag] = useState<{
+    label: string;
+    value: string;
+  }>(null);
 
   useEffect(() => {
     let newFilteredPosts = allPosts.filter(
       (post) =>
         (selectedZone === null || post.zone === selectedZone.value) &&
         (selectedRating === null || post.rating === selectedRating.value) &&
-        (selectedMRT === null || post.nearestMRT === selectedMRT.value)
+        (selectedMRT === null || post.nearestMRT === selectedMRT.value) &&
+        (selectedTag === null || post.tags.includes(selectedTag.value))
     );
     setFilteredPosts(newFilteredPosts);
-  }, [selectedZone, selectedRating, selectedMRT]);
+  }, [selectedZone, selectedRating, selectedMRT, selectedTag]);
 
   return (
     <>
@@ -60,21 +65,26 @@ export default function Index({ allPosts }: Props) {
                 placeholder={`Zone`}
                 sortOptions={zoneOptions}
                 onChange={(choice) => setSelectedZone(choice)}
+                className={styles["zone-dropdown"]}
               />
               <FilterDropdown
                 placeholder={`Rating`}
                 sortOptions={ratingOptions}
                 onChange={(choice) => setSelectedRating(choice)}
+                className={styles["rating-dropdown"]}
               />
               <FilterDropdown
                 placeholder={`Nearest MRT Station`}
                 sortOptions={mrtOptions}
                 onChange={(choice) => setSelectedMRT(choice)}
+                className={styles["mrt-dropdown"]}
               />
-              {/* <FilterDropdown
-              placeholder={`Country`}
-              sortOptions={overseasOptions}
-            /> */}
+              <FilterDropdown
+                placeholder={`Tags`}
+                sortOptions={tagsOptions}
+                onChange={(choice) => setSelectedTag(choice)}
+                className={styles["tags-dropdown"]}
+              />
             </div>
           </div>
           <div className={styles["food-container"]}>
@@ -113,6 +123,7 @@ export const getStaticProps = async () => {
     "nearestMRT",
     "zone",
     "rating",
+    "tags",
   ]);
 
   return {

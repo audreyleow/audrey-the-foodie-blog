@@ -80,6 +80,9 @@
   .main-reviews {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+  .main-reviews {
+    row-gap: 3rem;
+  }
 }
 
 /* main-page/post-preview.tsx */

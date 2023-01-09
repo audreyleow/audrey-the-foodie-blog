@@ -20,6 +20,7 @@ type PostType = {
   rating: string;
   collab: boolean;
   hours: string;
+  tags: string[];
 };
 
 export default PostType;
