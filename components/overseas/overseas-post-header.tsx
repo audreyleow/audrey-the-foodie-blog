@@ -28,9 +28,6 @@ const OverseasPostHeader = ({
     <>
       <PostTitle>{title}</PostTitle>
       <div className={styles.general}>
-        {/* <div className="">
-          <Region zone={zone} />
-        </div> */}
         <div className={styles.temp}>
           <DateFormatter dateString={date} />
           <Country country={country} />

@@ -40,3 +40,29 @@
     font-size: 2rem;
   }
 }
+
+/* overseas-nav.tsx */
+.overseas-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 60px;
+  font-size: 1.25rem;
+  border: 1px solid #ccc;
+}
+
+.country {
+  margin: 20px 0px;
+  padding: 0px 30px;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.last-country {
+  padding: 20px 30px;
+  cursor: pointer;
+}
+
+.selected-country {
+  font-weight: 700;
+}

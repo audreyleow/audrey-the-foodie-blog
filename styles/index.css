@@ -216,3 +216,44 @@
     line-height: 1.5rem;
   }
 }
+
+/* _overseas */
+
+.desktop-image {
+  display: block;
+}
+
+.mobile-image {
+  display: none;
+}
+
+.two-pictures {
+  display: flex;
+}
+
+.external-link {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 800px) {
+  .two-pictures {
+    justify-content: center;
+  }
+
+  .video-override {
+    display: none;
+  }
+
+  .image-override {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .desktop-image {
+    display: none;
+  }
+  .mobile-image {
+    display: block;
+  }
+}

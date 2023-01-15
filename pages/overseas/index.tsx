@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../../components/container";
 import MoreOverseasStories from "../../components/overseas/overseas-more-stories";
 import OverseasHeroPost from "../../components/overseas/overseas-hero-post";
 import Intro from "../../components/intro";
 import Layout from "../../components/layout";
+import FilterDropdown from "../../components/food/filter-dropdown";
+import {
+  overseasOptions,
+  tagsOptions,
+} from "../../components/food/filter-options";
+import OverseasNav from "../../components/overseas/overseas-nav";
+import OverseasNewestPosts from "../../components/overseas/overseas-newest-posts";
+import styles from "../../components/food/food.module.css";
 import Head from "next/head";
 import OverseasPost from "../../interfaces/overseasPost";
 import { join } from "path";
@@ -14,9 +22,15 @@ type Props = {
 };
 
 export default function Index({ allOverseasPosts }: Props) {
-  const heroPost = allOverseasPosts[0];
-  const morePosts = allOverseasPosts.slice(1);
   console.log(allOverseasPosts);
+  const [filteredOverseasPosts, setFilteredOverseasPosts] =
+    useState(allOverseasPosts);
+
+  const heroPost = filteredOverseasPosts[0];
+  const morePosts = filteredOverseasPosts.slice(1);
+  const newPosts = filteredOverseasPosts.slice(0, 5);
+  const [selectedCountry, setSelectedCountry] = useState("France");
+
   return (
     <>
       <Layout>
@@ -24,7 +38,11 @@ export default function Index({ allOverseasPosts }: Props) {
           <title>AudreyTheFoodie</title>
         </Head>
         <Container>
-          <Intro text={`Looking for something specific?`} />
+          {/* <OverseasNav
+            country={selectedCountry}
+            onChange={setSelectedCountry}
+          />
+          <OverseasNewestPosts posts={newPosts} country={selectedCountry} /> */}
           {heroPost && (
             <OverseasHeroPost
               title={heroPost.title}

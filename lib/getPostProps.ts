@@ -19,6 +19,7 @@ export default async function getPostProps(slug: string, directory: string) {
     "location",
     "excerpt",
     "imgArray",
+    "country",
   ]);
 
   const { frontmatter: frontmatterRemoved, ...mdxContent } = await serialize(
