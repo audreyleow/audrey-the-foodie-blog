@@ -60,7 +60,7 @@ export default function Index({ allOverseasPosts }: Props) {
                   coverImage={post.coverImage}
                   date={post.date}
                   zone={post.country}
-                  slug={`/posts/${post.slug}`}
+                  slug={`/overseas/${post.slug}`}
                   excerpt={post.excerpt}
                   nearestMRT={post.nearestMRT}
                   location={post.location}
