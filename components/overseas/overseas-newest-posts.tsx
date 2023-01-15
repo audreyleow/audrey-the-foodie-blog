@@ -20,7 +20,7 @@ const OverseasNewestPosts = ({ posts, country }: Props) => {
   }, [country]);
   return (
     <section>
-      <h2 className={styles["more-reviews"]}>{country}</h2>
+      <h2 className={styles["country-heading"]}>{country}</h2>
       <div></div>
     </section>
   );

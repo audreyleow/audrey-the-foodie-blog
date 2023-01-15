@@ -45,7 +45,7 @@ export default function Index({ allOverseasPosts }: Props) {
         <Head>
           <title>AudreyTheFoodie</title>
         </Head>
-        <Container>
+        <div className={styles["overseas-container"]}>
           <OverseasNav
             country={selectedCountry}
             onChange={setSelectedCountry}
@@ -81,7 +81,7 @@ export default function Index({ allOverseasPosts }: Props) {
             />
           )}
           {morePosts.length > 0 && <MoreOverseasStories posts={morePosts} />} */}
-        </Container>
+        </div>
       </Layout>
     </>
   );
