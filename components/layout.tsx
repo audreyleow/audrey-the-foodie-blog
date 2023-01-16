@@ -5,16 +5,15 @@ import Navbar from "./navbar";
 import { figtree } from "./utils/font";
 
 type Props = {
-  preview?: boolean;
   children: React.ReactNode;
 };
 
-const Layout = ({ preview, children }: Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <>
       <Meta />
       <div className={`min-size ${figtree.className}`}>
-        <Alert preview={preview} />
+        <Alert />
         <Navbar />
         <main>{children}</main>
       </div>

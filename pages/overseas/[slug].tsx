@@ -29,7 +29,7 @@ export default function Post({ mdxContent, frontmatter }: Props) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={false}>
+    <Layout>
       <Container>
         {/* <Header /> */}
         {router.isFallback ? (

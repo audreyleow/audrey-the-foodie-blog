@@ -11,7 +11,6 @@ type Props = {
   igLink: string;
   date: string;
   zone: string;
-  nearestMRT: string;
   slug: string;
 };
 
@@ -21,7 +20,6 @@ const PostHeader = ({
   igLink,
   date,
   zone,
-  nearestMRT,
   slug,
 }: Props) => {
   return (

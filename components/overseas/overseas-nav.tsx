@@ -1,6 +1,4 @@
-import Link from "next/link";
 import Image from "next/image";
-import { figtree } from "../utils/font";
 import styles from "./overseas.module.css";
 
 const OverseasNav = ({

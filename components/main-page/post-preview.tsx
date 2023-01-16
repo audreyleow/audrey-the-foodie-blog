@@ -10,11 +10,8 @@ type Props = {
   date: string;
   excerpt: string;
   zone: string;
-  nearestMRT: string;
-  location: string;
-  rating: string;
-  collab: boolean;
   slug: string;
+  tags?: string[];
 };
 
 const PostPreview = ({
@@ -23,17 +20,17 @@ const PostPreview = ({
   date,
   excerpt,
   zone,
-  nearestMRT,
-  location,
-  rating,
-  collab,
   slug,
+  tags,
 }: Props) => {
   return (
     <div>
       <div className="mb-5">
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
+      {tags !== undefined && (
+        <div className={styles["country-subheading"]}>{tags[0]}</div>
+      )}
       <div className={styles["food-heading"]}>
         <Link href={slug} className="hover:underline">
           {title}

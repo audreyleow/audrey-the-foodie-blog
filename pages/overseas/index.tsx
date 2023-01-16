@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Container from "../../components/container";
-import MoreOverseasStories from "../../components/overseas/overseas-more-stories";
-import OverseasHeroPost from "../../components/overseas/overseas-hero-post";
-import Intro from "../../components/intro";
 import Layout from "../../components/layout";
-import FilterDropdown from "../../components/food/filter-dropdown";
-import {
-  overseasOptions,
-  tagsOptions,
-} from "../../components/food/filter-options";
 import PostPreview from "../../components/main-page/post-preview";
 import OverseasNav from "../../components/overseas/overseas-nav";
 import OverseasNewestPosts from "../../components/overseas/overseas-newest-posts";
@@ -27,8 +18,6 @@ export default function Index({ allOverseasPosts }: Props) {
   const [filteredOverseasPosts, setFilteredOverseasPosts] =
     useState(allOverseasPosts);
 
-  const heroPost = filteredOverseasPosts[0];
-  const morePosts = filteredOverseasPosts.slice(1);
   const newPosts = filteredOverseasPosts.slice(0, 5);
   const [selectedCountry, setSelectedCountry] = useState("France");
 
@@ -50,7 +39,7 @@ export default function Index({ allOverseasPosts }: Props) {
             country={selectedCountry}
             onChange={setSelectedCountry}
           />
-          <OverseasNewestPosts posts={newPosts} country={selectedCountry} />
+          <OverseasNewestPosts country={selectedCountry} />
           <div className={styles["food-container"]}>
             <div className={styles["main-reviews"]}>
               {filteredOverseasPosts.map((post) => (
@@ -62,25 +51,10 @@ export default function Index({ allOverseasPosts }: Props) {
                   zone={post.country}
                   slug={`/overseas/${post.slug}`}
                   excerpt={post.excerpt}
-                  nearestMRT={post.nearestMRT}
-                  location={post.location}
-                  rating={post.rating}
-                  collab={post.collab}
                 />
               ))}
             </div>
           </div>
-          {/* {heroPost && (
-            <OverseasHeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              zone={heroPost.country}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreOverseasStories posts={morePosts} />} */}
         </div>
       </Layout>
     </>

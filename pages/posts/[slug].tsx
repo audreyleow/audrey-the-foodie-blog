@@ -2,24 +2,16 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "../../components/container";
 import Link from "next/link";
-import Header from "../../components/header";
 import PostHeader from "../../components/post/post-header";
 import Layout from "../../components/layout";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
+import { getAllPosts } from "../../lib/api";
 import PostTitle from "../../components/post/post-title";
 import Details from "../../components/post/details";
 import Head from "next/head";
-import type PostType from "../../interfaces/post";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
 import { figtree } from "../../components/utils/font";
-import Image from "next/image";
-import ShareSocial from "../../components/utils/share-social";
-import remarkGfm from "remark-gfm";
-import qs from "qs";
 import getPostProps from "../../lib/getPostProps";
 import { join } from "path";
-import fs from "fs";
 
 type Props = {
   mdxContent: MDXRemoteSerializeResult<
@@ -38,9 +30,8 @@ export default function Post({ mdxContent, frontmatter }: Props) {
   }
 
   return (
-    <Layout preview={false}>
+    <Layout>
       <Container>
-        {/* <Header /> */}
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -56,7 +47,6 @@ export default function Post({ mdxContent, frontmatter }: Props) {
                 igLink={frontmatter.igLink}
                 date={frontmatter.date}
                 zone={frontmatter.zone}
-                nearestMRT={frontmatter.nearestMRT}
                 slug={frontmatter.slug}
               />
               <MDXRemote {...mdxContent} />

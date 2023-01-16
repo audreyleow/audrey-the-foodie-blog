@@ -98,10 +98,7 @@ export default function Index({ allPosts }: Props) {
                   zone={post.zone}
                   slug={`/posts/${post.slug}`}
                   excerpt={post.excerpt}
-                  nearestMRT={post.nearestMRT}
-                  location={post.location}
-                  rating={post.rating}
-                  collab={post.collab}
+                  tags={post.tags}
                 />
               ))}
             </div>

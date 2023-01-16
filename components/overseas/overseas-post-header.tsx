@@ -11,7 +11,6 @@ type Props = {
   igLink: string;
   date: string;
   country: string;
-  nearestMRT: string;
   slug: string;
 };
 
@@ -21,7 +20,6 @@ const OverseasPostHeader = ({
   igLink,
   date,
   country,
-  nearestMRT,
   slug,
 }: Props) => {
   return (

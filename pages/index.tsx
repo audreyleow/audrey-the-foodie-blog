@@ -1,21 +1,20 @@
 import Head from "next/head";
-import Link from "next/link";
 import { join } from "path";
-import Container from "../components/container";
-import MoreStories from "../components/main-page/more-stories";
-import HeroPost from "../components/main-page/hero-post";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
 import Post from "../interfaces/post";
+import OverseasPost from "../interfaces/overseasPost";
+import MainSegment from "../components/main-page/main-segment";
 
 type Props = {
   allPosts: Post[];
+  allOverseasPosts: OverseasPost[];
 };
 
-export default function Index({ allPosts }: Props) {
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
+export default function Index({ allPosts, allOverseasPosts }: Props) {
+  const newPosts = allPosts.slice(0, 4);
+  const newOverseasPosts = allOverseasPosts.slice(0, 4);
   console.log(allPosts);
   return (
     <>
@@ -23,28 +22,21 @@ export default function Index({ allPosts }: Props) {
         <Head>
           <title>AudreyTheFoodie</title>
         </Head>
-        <Container>
+        <div className="main-container">
           <Intro
             text={`Just a Singaporean foodie sharing her love for food!`}
           />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              zone={heroPost.zone}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          <Link href={`/food`}>
-            <div className="redirect-filter">
-              Looking for something&nbsp;
-              <span style={{ textDecoration: "underline" }}> specific?</span> →
-            </div>
-          </Link>
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
+          <MainSegment
+            posts={newPosts}
+            heading={`Newest SG Reviews`}
+            route={`/food`}
+          />
+          <MainSegment
+            posts={newOverseasPosts}
+            heading={`Newest Overseas Reviews`}
+            route={`/overseas`}
+          />
+        </div>
       </Layout>
     </>
   );
@@ -52,6 +44,8 @@ export default function Index({ allPosts }: Props) {
 
 export const getStaticProps = async () => {
   const postsDirectory = join(process.cwd(), "_posts");
+  const overseasPostsDirectory = join(process.cwd(), "_overseas");
+
   const allPosts = getAllPosts(postsDirectory, [
     "title",
     "date",
@@ -60,9 +54,20 @@ export const getStaticProps = async () => {
     "excerpt",
     "nearestMRT",
     "zone",
+    "tags",
+  ]);
+
+  const allOverseasPosts = getAllPosts(overseasPostsDirectory, [
+    "title",
+    "date",
+    "slug",
+    "coverImage",
+    "excerpt",
+    "nearestMRT",
+    "country",
   ]);
 
   return {
-    props: { allPosts },
+    props: { allPosts, allOverseasPosts },
   };
 };
