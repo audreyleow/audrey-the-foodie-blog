@@ -29,7 +29,7 @@ export default function Index({ allPosts, allOverseasPosts }: Props) {
           <MainSegment
             posts={newPosts}
             heading={`Newest SG Reviews`}
-            route={`/food`}
+            route={`/posts`}
           />
           <MainSegment
             posts={newOverseasPosts}

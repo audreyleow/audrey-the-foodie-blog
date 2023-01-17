@@ -28,7 +28,7 @@ const MainSegment = ({ posts, heading, route }: Props) => {
         <LargePost
           title={largePost.title}
           coverImage={largePost.coverImage}
-          slug={largePost.slug}
+          slug={`/${route}/${largePost.slug}`}
           excerpt={largePost.excerpt}
           country={largePost.country}
           tags={largePost.tags}
@@ -38,7 +38,7 @@ const MainSegment = ({ posts, heading, route }: Props) => {
             <div className={styles["indiv-small-post"]}>
               <SmallPost
                 title={post.title}
-                slug={post.slug}
+                slug={`/${route}/${post.slug}`}
                 excerpt={post.excerpt}
                 country={post.country}
                 someTags={post.tags}
