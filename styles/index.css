@@ -381,3 +381,37 @@
   -webkit-appearance: none;
   transition: background-color 0.2s;
 }
+
+/* sitemap/index.tsx */
+
+.sitemap-container {
+  padding: 20px 40px;
+}
+
+.sitemap-heading {
+  /* padding: 10px 0px; */
+  font-size: 30px;
+  font-weight: 600;
+  border-bottom: 1px solid #5a5a5a;
+}
+
+.sitemap-subheading {
+  padding: 10px 0px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.sitemap-segment {
+  column-width: 200px;
+  padding-left: 5px;
+  font-size: 15px;
+}
+
+.sitemap-indiv {
+  margin-bottom: 5px;
+  color: #5a5a5a;
+}
+
+.sitemap-indiv:hover {
+  text-decoration: underline;
+}
