@@ -47,7 +47,6 @@ export default function Post({ mdxContent, frontmatter }: Props) {
                 igLink={frontmatter.igLink}
                 date={frontmatter.date}
                 country={frontmatter.country}
-                nearestMRT={frontmatter.nearestMRT}
                 slug={frontmatter.slug}
               />
               <MDXRemote {...mdxContent} />
