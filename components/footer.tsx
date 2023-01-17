@@ -1,23 +1,31 @@
-import Container from "./container";
+import EmailUpdate from "./utils/email-update";
 
 const Footer = () => {
   return (
     <footer className="bg-neutral-50 border-t border-neutral-200">
-      <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-3xl lg:text-[2rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Join me on my <br /> foodie journey!
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
+      <div className="main-container">
+        <div className="footer-container">
+          <div className="left-container">
+            <h3 className="heading">
+              Join me on my <br /> foodie journey!
+            </h3>
             <a
               href="https://www.instagram.com/audrey_the_foodie/"
               className="ig-bg footer-ig duration-200 transition"
             >
-              Follow me on Instagram for more food recommendations!
+              Follow me on Instagram for <br /> more food recommendations!
             </a>
           </div>
+
+          <div className="right-container">
+            <div className="sign-up-heading">
+              Sign up for my weekly updates!
+            </div>
+            {/* <div></div> */}
+            <EmailUpdate />
+          </div>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 };
