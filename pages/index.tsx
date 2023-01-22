@@ -6,6 +6,8 @@ import { getAllPosts } from "../lib/api";
 import Post from "../interfaces/post";
 import OverseasPost from "../interfaces/overseasPost";
 import MainSegment from "../components/main-page/main-segment";
+import MainOverseasSegment from "../components/main-page/main-overseas-segment";
+import { shuffle } from "lodash";
 
 type Props = {
   allPosts: Post[];
@@ -31,7 +33,7 @@ export default function Index({ allPosts, allOverseasPosts }: Props) {
             heading={`Newest SG Reviews`}
             route={`/posts`}
           />
-          <MainSegment
+          <MainOverseasSegment
             posts={newOverseasPosts}
             heading={`Newest Overseas Reviews`}
             route={`/overseas`}
@@ -68,6 +70,6 @@ export const getStaticProps = async () => {
   ]);
 
   return {
-    props: { allPosts, allOverseasPosts },
+    props: { allPosts, allOverseasPosts: shuffle(allOverseasPosts) },
   };
 };

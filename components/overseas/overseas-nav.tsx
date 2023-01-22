@@ -1,13 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./overseas.module.css";
 
-const OverseasNav = ({
-  country,
-  onChange,
-}: {
-  country: string;
-  onChange: (choice: string) => void;
-}) => {
+const OverseasNav = ({ country }: { country: string }) => {
   return (
     <div className={styles["overseas-nav"]}>
       <div className={styles["countries-heading"]}>
@@ -22,53 +17,45 @@ const OverseasNav = ({
       <div className={styles["full-countries"]}>
         <div
           className={`${styles.country} ${
+            country === "All" && styles["selected-country"]
+          }`}
+        >
+          <Link href="/overseas">All</Link>
+        </div>
+        <div
+          className={`${styles.country} ${
             country === "France" && styles["selected-country"]
           }`}
-          onClick={() => {
-            onChange("France");
-          }}
         >
-          France
+          <Link href="/overseas/france">France</Link>
         </div>
         <div
           className={`${styles.country} ${
             country === "Germany" && styles["selected-country"]
           }`}
-          onClick={() => {
-            onChange("Germany");
-          }}
         >
-          Germany
+          <Link href="/overseas/germany">Germany</Link>
         </div>
         <div
           className={`${styles.country} ${
             country === "Italy" && styles["selected-country"]
           }`}
-          onClick={() => {
-            onChange("Italy");
-          }}
         >
-          Italy
+          <Link href="/overseas/italy">Italy</Link>
         </div>
         <div
           className={`${styles.country} ${
             country === "Malaysia" && styles["selected-country"]
           }`}
-          onClick={() => {
-            onChange("Malaysia");
-          }}
         >
-          Malaysia
+          <Link href="/overseas/malaysia">Malaysia</Link>
         </div>
         <div
           className={`${styles["last-country"]} ${
             country === "Vietnam" && styles["selected-country"]
           }`}
-          onClick={() => {
-            onChange("Vietnam");
-          }}
         >
-          Vietnam
+          <Link href="/overseas/vietnam">Vietnam</Link>
         </div>
       </div>
     </div>
