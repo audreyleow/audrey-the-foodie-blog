@@ -171,5 +171,7 @@ export const tagsOptions = [
   { value: "Vietnamese", label: "Vietnamese" },
   { value: "Bubble Tea", label: "Bubble Tea" },
   { value: "Indonesian", label: "Indonesian" },
-
+  { value: "Gelato / Ice Cream", label: "Gelato / Ice Cream" },
+  { value: "SG Local", label: "SG Local" },
+  { value: "Durian", label: "Durian" },
 ];
