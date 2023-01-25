@@ -4,6 +4,7 @@ import Layout from "../../components/layout";
 import Head from "next/head";
 import OverseasPost from "../../interfaces/overseasPost";
 import Post from "../../interfaces/post";
+import CountryRoute from "../../components/utils/country-route";
 import { join } from "path";
 import { getAllPosts } from "../../lib/api";
 
@@ -40,7 +41,11 @@ export default function Index({ allOverseasPosts, allPosts }: Props) {
                 {allOverseasPosts.map((overseasPost) => {
                   return (
                     <li className="sitemap-indiv">
-                      <Link href={`/overseas/${overseasPost.slug}`}>
+                      <Link
+                        href={`/overseas/${CountryRoute(
+                          overseasPost.country
+                        )}/${overseasPost.slug}`}
+                      >
                         {overseasPost.title}
                       </Link>
                     </li>
@@ -76,6 +81,7 @@ export const getStaticProps = async () => {
   const allOverseasPosts = getAllPosts(overseasPostsDirectory, [
     "title",
     "slug",
+    "country",
   ]);
 
   const postsDirectory = join(process.cwd(), "_posts");
