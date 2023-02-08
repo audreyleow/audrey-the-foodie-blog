@@ -59,7 +59,7 @@ export default function Post({ mdxContent, frontmatter }: Props) {
                 hours={frontmatter.hours}
               />
               <h4 className="text-center md:text-right text-lg mt-8 md:pl-8">
-                <Link href="/" className="hover:underline">
+                <Link href="/overseas" className="hover:underline">
                   Check out my other food reviews here! →
                 </Link>
               </h4>
