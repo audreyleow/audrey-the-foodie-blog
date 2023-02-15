@@ -19,6 +19,7 @@ import styles from "./post/post.module.css";
 const drawerWidth = 240;
 
 const MOBILE_NAVBAR_OPTIONS = [
+  { name: "SG Food Reviews", slug: "/food" },
   { name: "Overseas", slug: "/overseas" },
   { name: "My Recipes", slug: "/my_recipes" },
   { name: "About Me", slug: "/about_me" },
