@@ -366,6 +366,12 @@
 
 .two-pictures {
   display: flex;
+  gap: 20px;
+}
+
+/* for 1 pic and 1 vid combinations */
+.two-pic-indiv {
+  flex: 1 1 0;
 }
 
 .external-link {
