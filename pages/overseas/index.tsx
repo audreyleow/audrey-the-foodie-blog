@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Layout from "../../components/layout";
 import PostPreview from "../../components/main-page/post-preview";
 import OverseasNav from "../../components/overseas/overseas-nav";
@@ -9,19 +9,13 @@ import OverseasPost from "../../interfaces/overseasPost";
 import { join } from "path";
 import { getAllPosts, Items } from "../../lib/api";
 import CountryRoute from "../../components/utils/country-route";
-import { useRouter } from "next/router";
 import { GetStaticProps } from "next";
-
-const COUNTRIES = ["All", "France", "Germany", "Italy", "Malaysia", "Vietnam"];
 
 type Props = {
   allOverseasPosts: OverseasPost[];
 };
 
 export default function Index({ allOverseasPosts }: Props) {
-  const router = useRouter();
-  const [filteredOverseasPosts, setFilteredOverseasPosts] =
-    useState(allOverseasPosts);
   return (
     <Layout>
       <Head>
@@ -32,7 +26,7 @@ export default function Index({ allOverseasPosts }: Props) {
         <OverseasNewestPosts country="All" />
         <div className={styles["food-container"]}>
           <div className={styles["main-reviews"]}>
-            {filteredOverseasPosts.map((post) => (
+            {allOverseasPosts.map((post) => (
               <PostPreview
                 key={post.slug}
                 title={post.title}

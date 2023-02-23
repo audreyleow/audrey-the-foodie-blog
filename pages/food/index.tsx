@@ -20,7 +20,6 @@ type Props = {
 };
 
 export default function Index({ allPosts }: Props) {
-  console.log(allPosts);
   const [filteredPosts, setFilteredPosts] = useState(allPosts);
   const [selectedZone, setSelectedZone] = useState<{
     label: string;

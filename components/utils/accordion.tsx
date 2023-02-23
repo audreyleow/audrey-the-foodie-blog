@@ -54,7 +54,7 @@ export default function ReusableAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           {localLinks.map((localLink) => (
-            <div>
+            <div key={localLink.route}>
               <Link href={localLink.route} className="link-decoration">
                 {localLink.linkText}
               </Link>
@@ -72,8 +72,12 @@ export default function ReusableAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           {overseasLinks.map((overseasLink) => (
-            <div>
-              <Link href={overseasLink.route} className="link-decoration">
+            <div key={overseasLink.route}>
+              <Link
+                key={overseasLink.route}
+                href={overseasLink.route}
+                className="link-decoration"
+              >
                 {overseasLink.country} Food Reviews
               </Link>
             </div>

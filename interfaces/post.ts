@@ -1,6 +1,6 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
-type PostType = {
+interface PostType {
   slug: string;
   title: string;
   date: string;

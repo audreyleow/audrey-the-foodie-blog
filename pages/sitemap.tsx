@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import Layout from "../../components/layout";
+import Layout from "../components/layout";
 import Head from "next/head";
-import OverseasPost from "../../interfaces/overseasPost";
-import Post from "../../interfaces/post";
-import CountryRoute from "../../components/utils/country-route";
+import OverseasPost from "../interfaces/overseasPost";
+import Post from "../interfaces/post";
+import CountryRoute from "../components/utils/country-route";
 import { join } from "path";
-import { getAllPosts } from "../../lib/api";
+import { getAllPosts } from "../lib/api";
 
 type Props = {
   allOverseasPosts: OverseasPost[];
@@ -28,7 +28,7 @@ export default function Index({ allOverseasPosts, allPosts }: Props) {
               <ul className="sitemap-segment">
                 {allPosts.map((post) => {
                   return (
-                    <li className="sitemap-indiv">
+                    <li key={post.slug} className="sitemap-indiv">
                       <Link href={`/posts/${post.slug}`}>{post.title}</Link>
                     </li>
                   );
@@ -40,7 +40,7 @@ export default function Index({ allOverseasPosts, allPosts }: Props) {
               <ul className="sitemap-segment">
                 {allOverseasPosts.map((overseasPost) => {
                   return (
-                    <li className="sitemap-indiv">
+                    <li key={overseasPost.slug} className="sitemap-indiv">
                       <Link
                         href={`/overseas/${CountryRoute(
                           overseasPost.country

@@ -171,7 +171,7 @@ export default function MobileNavbar() {
           >
             <div>Follow me on Instagram!</div>
             <div style={{ paddingTop: "10px" }}>
-              <InstagramIcon width={30} height="auto" />
+              <InstagramIcon width={30} height={30} />
             </div>
 
             {/* <ListItemText primary={option.name} /> */}

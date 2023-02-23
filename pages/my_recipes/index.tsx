@@ -2,13 +2,8 @@ import React from "react";
 import Container from "../../components/container";
 import Layout from "../../components/layout";
 import Head from "next/head";
-import OverseasPost from "../../interfaces/overseasPost";
 
-type Props = {
-  allOverseasPosts: OverseasPost[];
-};
-
-export default function Index({ allOverseasPosts }: Props) {
+export default function Index() {
   return (
     <>
       <Layout>
@@ -32,19 +27,3 @@ export default function Index({ allOverseasPosts }: Props) {
     </>
   );
 }
-
-// export const getStaticProps = async () => {
-//   const allOverseasPosts = getAllOverseasPosts([
-//     "title",
-//     "date",
-//     "slug",
-//     "coverImage",
-//     "excerpt",
-//     "nearestMRT",
-//     "country",
-//   ]);
-
-//   return {
-//     props: { allOverseasPosts },
-//   };
-// };

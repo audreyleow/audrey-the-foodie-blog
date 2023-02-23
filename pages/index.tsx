@@ -17,7 +17,6 @@ type Props = {
 export default function Index({ allPosts, allOverseasPosts }: Props) {
   const newPosts = allPosts.slice(0, 4);
   const newOverseasPosts = allOverseasPosts.slice(0, 4);
-  console.log(allPosts);
   return (
     <>
       <Layout>

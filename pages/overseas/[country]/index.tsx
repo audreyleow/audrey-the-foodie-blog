@@ -10,6 +10,8 @@ import styles from "../../../components/food/food.module.css";
 import { capitalize } from "lodash";
 import OverseasNav from "../../../components/overseas/overseas-nav";
 
+const COUNTRIES = ["italy", "germany", "vietnam", "malaysia", "france"];
+
 export default function Country({
   posts,
   selectedCountry,
@@ -47,15 +49,13 @@ export default function Country({
 
 export async function getStaticPaths() {
   return {
-    paths: ["italy", "germany", "vietnam", "malaysia", "france"].map(
-      (country) => {
-        return {
-          params: {
-            country,
-          },
-        };
-      }
-    ),
+    paths: COUNTRIES.map((country) => {
+      return {
+        params: {
+          country,
+        },
+      };
+    }),
     fallback: false,
   };
 }

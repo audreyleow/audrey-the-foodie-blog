@@ -33,7 +33,7 @@ const Footer = () => {
             <div className="bottom-indiv">
               <div className="topic"> Quick Local Links</div>
               {localLinks.map((localLink) => (
-                <div>
+                <div key={localLink.route}>
                   <Link href={localLink.route} className="link-decoration">
                     {localLink.linkText}
                   </Link>
@@ -43,7 +43,7 @@ const Footer = () => {
             <div className="bottom-indiv">
               <div className="topic"> Quick Overseas Links</div>
               {overseasLinks.map((overseasLink) => (
-                <div>
+                <div key={overseasLink.route}>
                   <Link href={overseasLink.route} className="link-decoration">
                     {overseasLink.country} Food Reviews
                   </Link>

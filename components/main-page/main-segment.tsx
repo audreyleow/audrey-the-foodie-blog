@@ -35,7 +35,7 @@ const MainSegment = ({ posts, heading, route }: Props) => {
         />
         <div className={styles["small-posts"]}>
           {smallPosts.map((post) => (
-            <div className={styles["indiv-small-post"]}>
+            <div key={post.slug} className={styles["indiv-small-post"]}>
               <SmallPost
                 title={post.title}
                 slug={`${route}/${post.slug}`}

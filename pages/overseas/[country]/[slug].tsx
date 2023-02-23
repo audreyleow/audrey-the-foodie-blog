@@ -38,7 +38,7 @@ export default function Post({ mdxContent, frontmatter }: Props) {
           <>
             <article className={`mb-32 ${figtree.className}`}>
               <Head>
-                <title>{frontmatter.title} | AUDREYTHEFOODIE</title>
+                <title>{frontmatter.title + " | AUDREYTHEFOODIE"}</title>
                 <meta property="og:image" content={frontmatter.ogImage.url} />
               </Head>
               <OverseasPostHeader
