@@ -11,6 +11,7 @@ export default function EmailUpdate() {
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setMessage("");
     setEmail(e.target.value);
   };
 
@@ -30,10 +31,13 @@ export default function EmailUpdate() {
 
       // Throw error with status code in case Fetch API req failed
       if (!res.ok) {
-        throw new Error(await res.json());
+        throw new Error((await res.json()).message);
       }
+
+      setMessage("Successfully subscribed!");
+      setEmail("");
     } catch (error) {
-      setMessage("Failed to subscribe, please try again");
+      setMessage(error.message);
     }
   }; /* Makes sure pet info is filled for pet name, owner name, species, and image url*/
   const formValidate = () => {
